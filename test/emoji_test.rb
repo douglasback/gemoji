@@ -114,6 +114,7 @@ class EmojiTest < TestCase
       char.add_alias "whining"
       char.add_unicode_alias "\u{1f629}\u{266a}"
       char.add_tag "complaining"
+      char.ingredient = "pumpkin"
     end
 
     begin
@@ -124,6 +125,7 @@ class EmojiTest < TestCase
 
       assert_equal %w[weary whining], emoji.aliases
       assert_includes emoji.tags, "complaining"
+      assert_equal "pumpkin", emoji.ingredient
     ensure
       emoji.aliases.pop
       emoji.unicode_aliases.pop

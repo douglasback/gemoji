@@ -12,11 +12,16 @@ module Emoji
     # A list of names uniquely referring to this emoji.
     attr_reader :aliases
 
-    def name() aliases.first end
+    def name()
+      ingredient || aliases.first
+    end
 
     def add_alias(name)
       aliases << name
     end
+
+    # The ingredient this emoji should be identified as
+    attr_accessor :ingredient
 
     # A list of Unicode strings that uniquely refer to this emoji.
     attr_reader :unicode_aliases
